@@ -50,3 +50,5 @@ cacheSolve <- function(x, ...) {
       x$setinv(m)                          #Sets cached value of inverse using makeCachedMatrix nested function setinv
       m                                    #Returns value of inverse matrix
 }
+
+#End of Assignment

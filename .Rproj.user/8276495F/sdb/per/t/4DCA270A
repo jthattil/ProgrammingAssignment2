@@ -1,0 +1,16 @@
+{
+    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n      # This pair of functions make it possible to create a special matrix\n      # using the makeCacheMatrix function and subsequently find its\n      # inverse using the cacheSolve function\n      # it allows reduced computing power if the inverse is already stored\n      # in the cached data\n\n## Write a short comment describing this function\n\n      # makeCacheMatrix is used to create a special matrix \n      # The output of the function returns a list of functions\n      # these functions can be used to set and retrieve the \n      # input matrix and inverse matrix\n\nmakeCacheMatrix <- function(x = matrix()) {\n      m <- NULL                          #Sets \"m\" to \"NULL\" vector\n      set <- function (y){               #Creates function \"set\" which has argument \"y\"\n            x <<- y                      #Caches \"x\" as value of \"y\"\n            m <<- NULL                   #Caches \"m\" as value \"NULL\"\n      }\n      get <- function() x                #Create function \"get\" to return value of \"x\"\n      setinv <- function(inv) m <<- inv  #Create function \"setinv\" to chache value of matrix inverse as \"m\"\n      getinv <- function() m             #Create function \"getinv\" to retrieve cached value of \"m\"\n      list(set = set, get = get, setinv = setinv, getinv = getinv)\n            #Output of the function will be list of four functions \"set\", \"get\", \"setinv\", \"getinv\"\n\n}\n\n\n## Write a short comment describing this function\n\n      # cacheSolve takes the special matrix created by the function\n      # makeCacheMatrix and finds the inverse of the input\n      # if this function was already performed the inverse which was\n      # stored in the cache is retrieved instead of reperforming the \n      # calculation\n\ncacheSolve <- function(x, ...) {\n      ## Return a matrix that is the inverse of 'x'\n      \n      m <- x$getinv()                      #Sets the local value of \"m\" as value obtained from makeCachedMatrix\n      if(!is.null(m)){                     #Logical statement to check if \"m\" is not NULL\n            message(\"Getting Cached Data\") #If logical is TRUE return message and value of \"m\"\n            return(m)\n      }\n      data <- x$get()                      #Sets \"data\" as value obtained from makeCachedMatrix\n      m <- solve(data,...)                 #Solves \"data\" to find inverse and stores the value as \"m\"\n      x$setinv(m)                          #Sets cached value of inverse using makeCachedMatrix nested function setinv\n      m                                    #Returns value of inverse matrix\n}\n\n#End of Assignment\n",
+    "created" : 1434092227398.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1230466349",
+    "id" : "4DCA270A",
+    "lastKnownWriteTime" : 1434111786,
+    "path" : "C:/Users/Joshua/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
