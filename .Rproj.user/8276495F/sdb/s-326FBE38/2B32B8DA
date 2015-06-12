@@ -1,0 +1,17 @@
+{
+    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n## Write a short comment describing this function\n\nmakeCacheMatrix <- function(x = matrix()) {\n      m <- NULL\n      set <- function (y){\n            x <<- y\n            m <<- NULL\n      }\n      get <- function() x\n      setinv <- function(inv) m <<- inv\n      getinv <- function() m\n      list(set = set, get = get, setinv = setinv, getinv = getinv)\n}\n\n\n## Write a short comment describing this function\n\ncacheSolve <- function(x, ...) {\n      ## Return a matrix that is the inverse of 'x'\n      m <- x$getinv()\n      if(!is.null(m)){\n            message(\"Getting Cached Data\")\n            return(m)\n      }\n      data <- x$get()\n      m <- solve(data,...)\n      x$setinv(m)\n      m\n}\n",
+    "created" : 1434101293559.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "364954059",
+    "id" : "2B32B8DA",
+    "lastKnownWriteTime" : 13229740524830817,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
